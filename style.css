@@ -52,12 +52,13 @@ header h1 {
 .cardsContainer{
     width: 350px;
 
-    overflow-x: scroll;
-    overflow-y: hidden;
+    overflow-x: auto;
     flex-wrap: nowrap;
+
     scroll-behavior: smooth;
-    scroll-snap-align: start;
     scroll-snap-type: x mandatory;
+
+    -webkit-overflow-scrolling: touch;
 
     display: flex;
     align-items: center;
