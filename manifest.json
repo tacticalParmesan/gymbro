@@ -1,0 +1,9 @@
+{
+    "name": "GymBro",
+    "short_name": "GymBro",
+    "start_url": "index.html",
+    "display": "fullscreen",
+    "background_color": "#fdfdfd",
+    "theme_color": "#db4938",
+    "orientation": "portrait-primary"
+}
