@@ -48,3 +48,18 @@ header h1 {
     width: 0.5rem;
     height: 0.5rem;
 }
+
+.cardsContainer{
+    width: 350px;
+
+    overflow-x: scroll;
+    overflow-y: hidden;
+    flex-wrap: nowrap;
+    scroll-behavior: smooth;
+    scroll-snap-align: start;
+    scroll-snap-type: x mandatory;
+
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
