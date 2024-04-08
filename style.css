@@ -88,11 +88,11 @@ header h1 {
 }
 
 .group-container:first-child {
-    padding-top: 3rem;
+    padding-top: 2rem;
 }
 
 .group-container {
-    min-height: 800px;
+    min-height: 820px;
 
     display:flex;
     flex-direction: column;
