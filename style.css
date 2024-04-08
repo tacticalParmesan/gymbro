@@ -14,7 +14,9 @@ body {
     align-items: center;
 
     min-height: 100vh;
-    gap: 3rem;
+
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
 
     background-color: #282828;
 }
@@ -68,21 +70,30 @@ header h1 {
 }
 
 .vertical-scroll {
-    overflow-y: scroll;
+    height: 100vh;
+
+    overflow-y: auto;
 
     scroll-behavior: smooth;
-    scroll-snap-type: y mandatory;
+    scroll-snap-type:y mandatory;
+    scroll-snap-points-y: repeat(100%);
 
     -webkit-overflow-scrolling: touch;
 
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: start;
 
-    gap: 3rem;
+}
+
+.group-container:first-child {
+    padding-top: 3rem;
 }
 
 .group-container {
+    min-height: 800px;
+
     display:flex;
     flex-direction: column;
     scroll-snap-align: start;
