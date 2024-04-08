@@ -107,3 +107,8 @@ header h1 {
 
     width: 340px;
 }
+
+.vertical-scroll::-webkit-scrollbar,
+.cardsContainer::-webkit-scrollbar {
+    display: none;
+}
