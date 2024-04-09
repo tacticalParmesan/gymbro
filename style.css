@@ -21,19 +21,6 @@ body {
     background-color: #282828;
 }
 
-header {
-    position: fixed;
-    top: 1.5rem;
-}
-
-header h1 {
-    font-weight: 1000;
-    font-size: 1.8rem;
-    background: -webkit-linear-gradient(180deg,#515151, #ffffff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
 .dots-nav {
     position: fixed;
     bottom: 2rem;
