@@ -10,7 +10,6 @@ export function createElm({type = "div", classes, text, parent} = {}) {
     if(text) newElement.textContent = text;
     if(parent) parent.append(newElement)
 
-    console.info("Created", newElement)
     return newElement;
 }
 

@@ -1,21 +1,22 @@
 import { createElm } from "./utils.js";
+import { workoutOne } from "./workout.js";
 
 const CardCreator = (function () {
 	const body = document.querySelector(".vertical-scroll");
 	const GOOGLE_ICON = "material-symbols-outlined";
 
 	const createCard = function (name, weightVal, settingsVal, restVal) {
-		const PLACEHOLDER_IMG =
-			"https://images.unsplash.com/photo-1690731033723-ad718c6e585a?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
-
+		
 		const newCard = createElm({ type: "div", classes: "exerciseCard" });
+
+    const exerciseImg = `./assets/${getImgName(name)}.jpg`;
 
 		const newCardImg = createElm({
 			type: "div",
 			classes: "exerciseImg",
 			parent: newCard,
 		});
-		newCardImg.style.backgroundImage = `linear-gradient(rgba(100, 100, 100, 0.5), rgba(30, 30, 30, 0.8)), url(${PLACEHOLDER_IMG})`;
+		newCardImg.style.backgroundImage = `linear-gradient(rgba(100, 100, 100, 0.5), rgba(30, 30, 30, 0.8)), url(${exerciseImg})`;
 
 		const newExercise = createElm({
 			classes: "exerciseContainer",
@@ -97,29 +98,49 @@ const CardCreator = (function () {
 		});
 	}
 
+  function getImgName(name){
+
+    const splitName = name.split(" ");
+
+    if (splitName.length > 1) {
+      return `${splitName[0].toLowerCase()}-${splitName[1].toLowerCase()}`;
+    } else {
+      return `${splitName[0].toLowerCase()}`
+    }
+    
+  }
+
 	return { createCard };
 })();
 
 const GroupCreator = (function () {
 	const body = document.querySelector(".vertical-scroll");
 
-	function createGroup(groups, exercises) {
-		for (let i = 0; i < groups; i++) {
+	function createGroup(workout) {
+		for (const key in workout) {
+      const group = workout[key]
+
 			const newGroup = createElm({
-				classes: ["group-container", "group" + i],
+				classes: ["group-container"],
 				parent: body,
 			});
 			const groupName = createElm({
 				type: "h2",
-				text: "Muscle Group",
+				text: group.groupName,
 				parent: newGroup,
 			});
 			const cardsContainer = createElm({
 				classes: "cardsContainer",
 				parent: newGroup,
 			});
-			for (let j = 0; j < exercises; j++) {
-				const newCard = CardCreator.createCard("Bench Press", "45kg", 0, "1'");
+			for (const key in group.exercises) {
+        const exercise = group.exercises[key];
+				const newCard = CardCreator.createCard(
+          exercise.name,
+          exercise.weight,
+          exercise.settings,
+          exercise.rest
+          );
 				cardsContainer.appendChild(newCard);
 			}
 		}
@@ -128,4 +149,4 @@ const GroupCreator = (function () {
   return {createGroup}
 })();
 
-GroupCreator.createGroup(3,5);
+GroupCreator.createGroup(workoutOne);
