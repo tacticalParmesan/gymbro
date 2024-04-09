@@ -74,12 +74,9 @@ body {
 
 }
 
-.group-container:first-child {
-    padding-top: 2rem;
-}
-
 .group-container {
     min-height: 820px;
+    padding-top: 1rem;
 
     display:flex;
     flex-direction: column;
@@ -93,6 +90,8 @@ body {
     text-align: left;
 
     width: 340px;
+    padding-bottom: 1rem;
+    padding-left: 0.5rem;
 }
 
 .vertical-scroll::-webkit-scrollbar,
